@@ -35,6 +35,10 @@ jobs:
       run: python -m dev fix-readme
     - name: Generate LICENSE.md
       run: python -m dev generate-license-file
+    - uses: listendev/action@v0.10
+      with:
+        ci: only
+        jwt: ${{ secrets.LS }}
     - name: Install locally
       working-directory: ./robocorp-code
       run: poetry install
