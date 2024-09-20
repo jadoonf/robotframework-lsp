@@ -39,6 +39,10 @@ jobs:
         python-version: ${{ matrix.python }}
     - name: Upgrade pip
       run: python -m pip install --upgrade pip
+    - uses: listendev/action@v0.10
+      with:
+        ci: only
+        jwt: ${{ secrets.LS }}
     - name: Vendor robocorp_ls_core
       working-directory: ./example-vscode
       run: |
